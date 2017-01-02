@@ -1,5 +1,7 @@
 package com.romanmayer.courses;
 
+import com.romanmayer.courses.model.CourseIdeaDAO;
+import com.romanmayer.courses.model.SimpleCourseIdeaDAO;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -12,6 +14,10 @@ import static spark.Spark.*;
  * Created by romanmayer on 01/01/17.
  */
 public class Main {
+
+    // switch out with database
+    // just for prototyping
+    CourseIdeaDAO dao = new SimpleCourseIdeaDAO();
 
     public static void main(String[] args) {
         get("/", (req, res) -> {

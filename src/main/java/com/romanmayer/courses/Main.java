@@ -3,6 +3,7 @@ package com.romanmayer.courses;
 import com.romanmayer.courses.model.CourseIdeaDAO;
 import com.romanmayer.courses.model.SimpleCourseIdeaDAO;
 import spark.ModelAndView;
+
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
@@ -15,11 +16,20 @@ import static spark.Spark.*;
  */
 public class Main {
 
+//    staticFileLocation("/public");
+
+
+   // staticFiles.location("/public");
+
+    // in memory data structure based DAO
     // switch out with database
     // just for prototyping
     CourseIdeaDAO dao = new SimpleCourseIdeaDAO();
 
     public static void main(String[] args) {
+
+        staticFileLocation("/public");
+
         get("/", (req, res) -> {
             Map<String, String> model = new HashMap<>();
             model.put("username", req.cookie("username"));
